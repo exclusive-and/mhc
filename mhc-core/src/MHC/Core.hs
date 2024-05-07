@@ -1,4 +1,3 @@
-
 module MHC.Core where
 
 import Data.Foldable (foldl')
