@@ -1,4 +1,10 @@
 signature MHC.Core.Vars where
 
+import Data.Hashable
+
+
 data Var
+
+instance Eq Var
+instance Hashable Var
 
