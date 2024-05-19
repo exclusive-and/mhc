@@ -14,6 +14,21 @@ At this point in compilation, Core programs are highly likely to contain a lot
 of operations that can easily be eliminated at compile-time. The simplifier
 searches a program for these operations, and applies some basic rewriting rules
 to get rid of them.
+
+The gist of the algorithm is that it gradually disassembles an expression, then
+rebuilds it with simplifications applied. Disassembling the expression allows
+it to gather all of the elimination-like operations into the SimplCont stack.
+And then rebuilding mainly consists of applying any of the collected eliminations
+that are allowed by the Core calculus.
+
+The elimination-like operations that the simplifier's interested in are e.g.
+
+      * App, which eliminates Lam by beta-reduction.
+
+      * Case, which eliminates constructors and thunks.
+
+        Eliminating via Case is only possible when other simplifications have already
+        reduced the scrutinee of the operation to WHNF.
 -}
 
 
