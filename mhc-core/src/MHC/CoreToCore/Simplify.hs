@@ -1,4 +1,4 @@
-module MHC.Core.Simplify where
+module MHC.CoreToCore.Simplify where
 
 import Data.HashMap as Map
 import MHC.Core
@@ -31,10 +31,6 @@ The elimination-like operations that the simplifier's interested in are e.g.
         reduced the scrutinee of the operation to WHNF.
 -}
 
-
-data SimplEnv = SimplEnv {
-        simpl_inScope   :: InScopeSet
-    }
 
 data SimplCont
     = Stop
