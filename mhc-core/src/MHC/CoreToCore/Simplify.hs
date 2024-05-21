@@ -1,10 +1,5 @@
 module MHC.CoreToCore.Simplify where
 
-import Data.HashMap as Map
-import MHC.Core
-import MHC.Core.Subst
-
-
 {-
 Here is where the simplification algorithm lives.
 
@@ -30,6 +25,11 @@ The elimination-like operations that the simplifier's interested in are e.g.
         Eliminating via Case is only possible when other simplifications have already
         reduced the scrutinee of the operation to WHNF.
 -}
+
+
+import Data.HashMap as Map
+import MHC.Core
+import MHC.Core.Subst
 
 
 data SimplCont
